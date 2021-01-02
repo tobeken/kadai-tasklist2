@@ -5,11 +5,11 @@ before_action :set_task, only: [:show, :edit, :update, :destroy]
   end
 
   def show
-      set_task
+
   end
 
   def new
-      
+     @task = Task.new  
   end
 
   def create
@@ -33,7 +33,7 @@ before_action :set_task, only: [:show, :edit, :update, :destroy]
 
     if @task.update(task_params)
       flash[:success] = 'Task は正常に更新されました'
-      redirect_to @message
+      redirect_to @task
     else
       flash.now[:danger] = 'Task は更新されませんでした'
       render :edit
